@@ -21,6 +21,10 @@
         <url>git@github.com:Cavvar/kafka-connect-smt.git</url>
         <tag>HEAD</tag>
     </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/Cavvar/kafka-connect-smt/issues</url>
+    </issueManagement>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
