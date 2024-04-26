@@ -16,12 +16,10 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:https://github.com/Cavvar/kafka-connect-smt.git
-        </connection>
-        <developerConnection>
-            scm:git:git@github.com:Cavvar/kafka-connect-smt.git
-        </developerConnection>
-        <url>https://github.com/Cavvar/kafka-connect-SMT</url>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>git@github.com:Cavvar/kafka-connect-smt.git</url>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
@@ -77,4 +75,15 @@
         </dependency>
     </dependencies>
     <!-- Add confluent hub plugin config -->
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <scmCommentPrefix>[ci skip]</scmCommentPrefix>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
