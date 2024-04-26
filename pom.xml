@@ -8,6 +8,7 @@
     <version>1.0.0</version>
     <name>kafka-connect-smt</name>
 
+    <url>https://github.com/Cavvar/kafka-connect-smt</url>
     <licenses>
         <license>
             <name>Apache License 2.0</name>
