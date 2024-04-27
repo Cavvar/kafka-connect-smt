@@ -3,12 +3,9 @@ name: Build and Test Pipeline
 on:
   push:
     branches:
-      - main
     paths-ignore:
       - '*.md'
       - '.github/**/*.yml'
-    tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
   pull_request:
     types: [ opened, synchronize, reopened ]
 
