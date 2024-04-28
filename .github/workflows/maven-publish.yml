@@ -28,6 +28,8 @@ jobs:
           ref: ${{  github.ref_name }}
       - name: Build project
         run: mvn -e -B clean package -DskipTests
+        env:
+          JAVA_HOME: /usr/lib/jvm/java-17-openjdk/
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
