@@ -7,6 +7,7 @@
     <artifactId>kafka-connect-smt</artifactId>
     <version>1.0.0</version>
     <name>kafka-connect-smt</name>
+    <packaging>jar</packaging>
 
     <url>https://github.com/Cavvar/kafka-connect-smt</url>
     <licenses>
@@ -28,9 +29,13 @@
     </issueManagement>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>21</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
         <kafka.version>3.7.0</kafka.version>
         <junit.version>5.10.0</junit.version>
         <mockito.version>5.11.0</mockito.version>
@@ -79,16 +84,23 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <!-- Add confluent hub plugin config -->
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>3.0.1</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
                 <configuration>
-                    <scmCommentPrefix>[ci skip]</scmCommentPrefix>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
         </plugins>
+        <!-- Add confluent hub plugin config -->
     </build>
 </project>
