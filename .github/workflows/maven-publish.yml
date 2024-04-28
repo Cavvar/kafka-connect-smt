@@ -14,7 +14,6 @@ jobs:
         uses: 74th/workflow-permission-action@1.0.0
         with:
           users: Cavvar
-  # Workflow was based upon https://github.com/green-code-initiative/ecoCode-java/blob/main/.github/workflows/tag_release.yml
   build:
     name: Release-Build
     runs-on: ubuntu-latest
@@ -28,8 +27,6 @@ jobs:
           ref: ${{  github.ref_name }}
       - name: Build project
         run: mvn -e -B clean package -DskipTests
-        env:
-          JAVA_HOME: /usr/lib/jvm/java-17-openjdk/
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
